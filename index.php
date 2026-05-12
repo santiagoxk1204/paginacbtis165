@@ -204,8 +204,7 @@ if (!$resultado) {
             </table>
 
         </section>
-
-        <!-- OPINIONES -->
+        
         <section id="opiniones" class="opiniones">
 
             <h2>Comparte tu opinión</h2>
