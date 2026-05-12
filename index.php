@@ -150,13 +150,14 @@ if (!$resultado) {
                 <label>opinion:</label>
                 <input type="text" id="opinion" name="opinion" placeholder="Tu opinion aqui" required>
                 <button type="submit" name="enviar" class="btn-submit">Enviar Consulta</button>
+
                 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 if(isset($_POST['enviar'])){
     // 1. Recibimos datos
     $opinion = $_POST['opinion'];
-    $sql = "INSERT INTO parecio (opinion) VALUES ('$opinion')";
+    $sql = "INSERT INTO respuesta (opinion) VALUES ('$opinion')";
     $query = mysqli_query($conexion, $sql);
 
     if($query){
