@@ -1,42 +1,29 @@
 <?php
 
-// CONEXIÓN
-$servidor = getenv('MYSQLHOST') ?: "localhost";
-$usuario  = getenv('MYSQLUSER') ?: "root";
-$clave    = getenv('MYSQLPASSWORD') ?: "";
-$bd       = getenv('MYSQLDATABASE') ?: "railway";
-$puerto   = getenv('MYSQLPORT') ?: "3306";
+$host = getenv('MYSQLHOST') ?:;
+$port = getenv('MYSQLPORT') ?: ;
+$user = getenv('MYSQLUSER') ?: ;
+$pass = getenv('MYSQLPASSWORD') ?:; 
+$db   = getenv('MYSQLDATABASE') ?:;
 
-$conn = mysqli_connect($servidor, $usuario, $clave, $bd, $puerto);
+$conexion = mysqli_connect($host, $user, $pass, $db, $port);
 
-if (!$conn) {
-    die("No se pudo conectar: " . mysqli_connect_error());
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
 }
 
-mysqli_set_charset($conn, "utf8");
+// Esto es vital para los acentos
+mysqli_set_charset($conexion, "utf8");
+?>
+<?php
+// 2. Consulta para obtener los programas de la tabla
+$query = "SELECT * FROM programas";
+$resultado = mysqli_query($conexion, $query); 
 
-
-// CONSULTA DE PROGRAMAS
-$sqlProgramas = "SELECT * FROM programas";
-$datosProgramas = mysqli_query($conn, $sqlProgramas);
-
-
-// GUARDAR OPINIÓN
-$mensaje = "";
-
-if(isset($_POST['guardar'])){
-
-    $comentario = $_POST['comentario'];
-
-    $insertar = "INSERT INTO parecio(comentario) VALUES('$comentario')";
-
-    if(mysqli_query($conn, $insertar)){
-        $mensaje = "Gracias por compartir tu opinión.";
-    } else {
-        $mensaje = "Error: " . mysqli_error($conn);
-    }
+// Verificación de seguridad
+if (!$resultado) {
+    die("Error en la consulta: " . mysqli_error($conexion));
 }
-
 ?>
 
 <!DOCTYPE html>
