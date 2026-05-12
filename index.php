@@ -32,7 +32,7 @@ if (!$resultado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Apoyo Estudiantil - CBTis 165</title>
-    <link rel="stylesheet" href="estilazo.css">
+    <link rel="stylesheet" href="estilos2.css">
 </head>
 <body>
 
