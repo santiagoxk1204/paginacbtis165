@@ -182,7 +182,8 @@ if (!$resultado) {
                             <td>{$fila['id']}</td>
                             <td>{$fila['nombre']}</td>
                             <td>{$fila['descripcion']}</td>
-                            <td>{$fila['categoria']}</td>
+                            <td>{$fila['area_de_impacto']}</td>
+                            <td>{$fila['requisitos']}</td>
                         </tr>
                         ";
                     }
