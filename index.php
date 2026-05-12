@@ -1,10 +1,10 @@
 <?php
 
-$host = getenv('MYSQLHOST');
-$port = getenv('MYSQLPORT');
-$user = getenv('MYSQLUSER');
-$pass = getenv('MYSQLPASSWORD'); 
-$db   = getenv('MYSQLDATABASE');
+$host = getenv('MYSQLHOST') ?: "localhost";
+$port = getenv('MYSQLPORT') ?: "3306";
+$user = getenv('MYSQLUSER') ?: "root";
+$pass = getenv('MYSQLPASSWORD') ?: "";
+$db   = getenv('MYSQLDATABASE') ?: "railway";
 
 $conexion = mysqli_connect($host, $user, $pass, $db, $port);
 
@@ -31,223 +31,153 @@ if (!$resultado) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Programas Escolares</title>
-
-    <link rel="stylesheet" href="estilos2.css">
+    <title>Portal de Apoyo Estudiantil - CBTis 165</title>
+    <link rel="stylesheet" href="estilazo.css">
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
-    <header class="encabezado">
-        <img src="logo.jpg" alt="Logo escolar">
-        <div>
-            <h1>Portal de Programas y Actividades Escolares</h1>
-            <p>Formación integral para estudiantes</p>
-        </div>
+    <header>
+        <img src="logo.jpg" alt="Logotipo Institucional CBTis 165">
+        <h1>Programas de Formación Integral</h1>
+        <p>CBTis 165 "Leona Vicario"</p>
     </header>
 
-    <!-- MENÚ -->
-    <nav class="menu">
-        <a href="#academico">Académico</a>
-        <a href="#salud">Salud</a>
-        <a href="#integral">Integral</a>
-        <a href="#emprendimiento">Talento</a>
-        <a href="#opiniones">Opiniones</a>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#academico">Apoyo Académico</a></li>
+            <li><a href="#salud">Bienestar y Salud</a></li>
+            <li><a href="#desarrollo">Desarrollo Integral</a></li>
+            <li><a href="#emprendimiento">Emprendimiento y Clubes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
     </nav>
 
-    <main>
-
-        <!-- APOYO ACADÉMICO -->
-        <section id="academico" class="bloque">
-            <div class="info">
-                <h2>Apoyo Académico</h2>
-
-                <h3>SINATA</h3>
-                <p>
-                    Estrategia educativa enfocada en tutorías y acompañamiento
-                    para fortalecer el rendimiento escolar y la formación integral.
-                </p>
-
-                <h3>PRONAFOLE</h3>
-                <p>
-                    Programa que fomenta la lectura mediante actividades culturales,
-                    círculos literarios y dinámicas de investigación.
-                </p>
-            </div>
-
-            <div class="imagenes">
-                <img src="SINATA.jpg" alt="">
-                <img src="pronafole1.jpg" alt="">
-            </div>
-        </section>
-
-        <!-- BIENESTAR -->
-        <section id="salud" class="bloque">
-            <div class="info">
-                <h2>Bienestar y Salud</h2>
-
-                <h3>FOMALASA</h3>
-
-                <p>
-                    Promueve hábitos saludables y prevención de riesgos en los estudiantes.
-                </p>
-
-                <ul>
-                    <li>Atención médica</li>
-                    <li>Orientación responsable</li>
-                    <li>Prevención de adicciones</li>
-                    <li>Promoción de salud física</li>
-                </ul>
-            </div>
-
-            <div class="imagenes">
-                <img src="fomalasa.jpg" alt="">
-            </div>
-        </section>
-
-        <!-- DESARROLLO -->
-        <section id="integral" class="bloque">
-            <div class="info">
-                <h2>Desarrollo Integral</h2>
-
-                <h3>ECALE</h3>
-                <p>
-                    Actividades cinematográficas para reflexión y análisis en grupo.
-                </p>
-
-                <h3>AMA DGETI</h3>
-                <p>
-                    Programa enfocado en sustentabilidad y cuidado del medio ambiente.
-                </p>
-            </div>
-
-            <div class="imagenes">
-                <img src="ecale.jpg" alt="">
-                <img src="amadgeti.jpg" alt="">
-            </div>
-        </section>
-
-        <!-- EMPRENDIMIENTO -->
-        <section id="emprendimiento" class="bloque">
-            <div class="info">
-                <h2>Emprendimiento y Talento</h2>
-
-                <h3>MEEMS</h3>
-                <p>
-                    Desarrollo de competencias emprendedoras para impulsar ideas y proyectos.
-                </p>
-
-                <h3>Clubes Escolares</h3>
-
-                <ul>
-                    <li>Fútbol</li>
-                    <li>Basquetbol</li>
-                    <li>Robótica</li>
-                    <li>Dibujo y pintura</li>
-                </ul>
-            </div>
-
-            <div class="imagenes">
-                <img src="meems.jpg" alt="">
-                <img src="deporte.jpg" alt="">
-            </div>
-        </section>
-
-        <!-- TABLA DINÁMICA -->
-        <section id="tabla" class="tabla-programas">
-
-            <h2>Programas Registrados</h2>
-
+    <main id="inicio">
+        
+        <section id="tabla-dinamica">
+            <h2>Catálogo General de Programas</h2>
+            <p>Información recuperada en tiempo real de la base de datos institucional:</p>
+            
             <table>
-
                 <thead>
                     <tr>
-                        <th>Clave</th>
+                        <th>ID</th>
                         <th>Programa</th>
                         <th>Descripción</th>
-                        <th>Categoría</th>
+                        <th>Área de Impacto</th>
+                        <th>Requisitos de Participación</th>
                     </tr>
                 </thead>
-
                 <tbody>
-
-                <?php
-
-                if(mysqli_num_rows($datosProgramas) > 0){
-
-                    foreach($datosProgramas as $fila){
-
-                        echo "
-                        <tr>
-                            <td>{$fila['id']}</td>
-                            <td>{$fila['nombre']}</td>
-                            <td>{$fila['descripcion']}</td>
-                            <td>{$fila['area_de_impacto']}</td>
-                            <td>{$fila['requisitos']}</td>
-                        </tr>
-                        ";
+                    <?php
+                    // Punto 3: Ciclo while para generar las filas dinámicamente
+                    while ($row = mysqli_fetch_array($resultado)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['id'] . "</td>";
+                        echo "<td><strong>" . $row['nombre'] . "</strong></td>";
+                        echo "<td>" . $row['descripcion'] . "</td>";
+                        echo "<td>" . $row['area_impacto'] . "</td>";
+                        echo "<td>" . $row['requisitos'] . "</td>";
+                        echo "</tr>";
                     }
-
-                } else {
-
-                    echo "
-                    <tr>
-                        <td colspan='4'>No hay registros disponibles</td>
-                    </tr>
-                    ";
-                }
-
-                ?>
-
+                    ?>
                 </tbody>
-
             </table>
-
         </section>
-        
-        <section id="opiniones" class="opiniones">
 
-            <h2>Comparte tu opinión</h2>
+        <hr>
 
+        <section id="academico" class="seccion-con-imagen">
+            <div class="texto-seccion">
+                <h3>Apoyo Académico</h3>
+                <p><strong>SINATA (Sistema Nacional de Tutorías):</strong> Es una estrategia para contribuir al desarrollo de las competencias y apoyar a los alumnos en la resolución de problemas de tipo académico, coadyuvando a la mejora de su rendimiento mediante orientación personalizada.</p>
+                <p><strong>PRONAFOLE (Fomento a la Lectura):</strong> Invita a los alumnos a acercarse a otros mundos mediante círculos literarios, tertulias, lecturas de poemas y juegos de investigación.</p>
+            </div>
+            <div class="imagen-seccion">
+                <img src="SINATA.jpg" alt="Apoyo Académico">
+                <img src="pronafole1.jpg" alt="fomento a la lectura">
+            </div>
+        </section>
+
+        <section id="salud" class="seccion-con-imagen">
+            <div class="texto-seccion">
+                <h3>Bienestar y Salud</h3>
+                <p><strong>FOMALASA (Fomento a la Salud):</strong> Propicia estilos de vida saludables y bienestar integral. La escuela cuenta con un <strong>Consultorio Médico</strong> extendido y un <strong>Consultorio SEXUAL-MENTE Responsable</strong>.</p>
+                <p>También se llevan a cabo estrategias de educación para la prevención de adicciones y promoción de la salud en el aula.</p>
+            </div>
+            <div class="imagen-seccion">
+                <img src="fomalasa.jpg" alt="Bienestar y Salud">
+            </div>
+        </section>
+
+        <section id="desarrollo" class="seccion-con-imagen">
+            <div class="texto-seccion">
+                <h3>Desarrollo Integral</h3>
+                <p><strong>ECALE (El Cine en la Escuela):</strong> A través de películas seleccionadas, se busca la reflexión grupal y el análisis individual involucrando a alumnos, docentes y padres de familia.</p>
+                <p><strong>AMA DGETI (Acciones por el Medio Ambiente):</strong> Busca reforzar el compromiso ciudadano en materia de sustentabilidad y cuidado del ambiente ante los desafíos actuales de nuestra sociedad.</p>
+            </div>
+            <div class="imagen-seccion">
+                <img src="amadgeti.jpg" alt="Desarrollo Integral">
+                <img src="ecale.jpg" alt="el cine a la escuela">
+            </div>
+        </section>
+
+        <section id="emprendimiento" class="seccion-con-imagen">
+            <div class="texto-seccion">
+                <h3>Emprendimiento y Talento</h3>
+                <p><strong>MEEMS (Modelo de Emprendedores):</strong> Desarrolla competencias emprendedoras en los estudiantes para impulsar sus proyectos de vida y negocios.</p>
+                <p><strong>Oferta de Clubes:</strong></p>
+                <ul>
+                    <li><strong>Deportivos:</strong> Fútbol, Voleibol y Basquetbol.</li>
+                    <li><strong>Culturales:</strong> Dibujo y Pintura.</li>
+                    <li><strong>Ciencias:</strong> Club Galácticos y Robótica.</li>
+                </ul>
+            </div>
+            <div class="imagen-seccion">
+                <img src="meems.jpg" alt="Clubes y Emprendimiento">
+                <img src="deporte.jpg" alt="clubes">
+                <img src="futbol.jpg" alt="clubes">
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contacto" class="formulario-consulta">
+            <h3>¿Te fue de utilidad la pagina? dejanos tu opinion </h3>
+            <p>Envíanos tu opinion.</p>
             <form method="POST">
+                <label>opinion:</label>
+                <input type="text" id="opinion" name="opinion" placeholder="Tu opinion aqui" required>
+                <button type="submit" name="enviar" class="btn-submit">Enviar Consulta</button>
+                <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+if(isset($_POST['enviar'])){
+    // 1. Recibimos datos
+    $opinion = $_POST['opinion'];
+    $sql = "INSERT INTO parecio (opinion) VALUES ('$opinion')";
+    $query = mysqli_query($conexion, $sql);
 
-                <textarea 
-                    name="comentario" 
-                    placeholder="Escribe tu opinión..."
-                    required>
-                </textarea>
-
-                <button type="submit" name="guardar">
-                    Enviar
-                </button>
-
+    if($query){
+        echo "¡Muchas gracias tu opinion nos ayuda a mejorar!.";
+    } else {
+        // ESTA LÍNEA ES CLAVE: Te dirá qué tiene de malo tu base de datos
+        echo "Error de SQL: " . mysqli_error($conexion);
+    }
+} 
+?>
             </form>
-
-            <p class="mensaje">
-                <?php echo $mensaje; ?>
-            </p>
-
         </section>
 
     </main>
 
-    <!-- PIE -->
     <footer>
-
-        <p><strong>CBTIS 165</strong></p>
-
-        <p>
-            Teléfono: 771-896-5242
-        </p>
-
-        <p>
-            Correo: contacto@cbtis.edu.mx
-        </p>
-
-        <p>
-            Elaborado por Santiago Valentín Encarnación Francisco | 2026
-        </p>
-
+        <p><strong>CBTis 165 "Leona Vicario"</strong></p>
+        <p>Dirección: Coatepec, Veracruz. Carretera Antigua Xalapa-Coatepec KM8.5, Consolapa.</p>
+        <p>telefono de contacto:2288162055</p>
+        <p>Desarrollado por: <strong>Fabián emir pineda hernandez</strong> | Parcial 2 | 2026</p>
+        <p>Redes Sociales: whatsapp:2281196948 / IG - pinedaa_hz</p>
     </footer>
 
 </body>
