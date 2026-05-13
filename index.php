@@ -154,7 +154,7 @@ if (!$resultado) {
                 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-if(isset($_POST['enviar'])){
+if(isset($_POST['enviar consulta'])){
     // 1. Recibimos datos
     $opinion = $_POST['respuesta'];
     $sql = "INSERT INTO respuestas (respuesta) VALUES ('$respuesta')";
