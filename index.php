@@ -12,15 +12,12 @@ if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-// Esto es vital para los acentos
 mysqli_set_charset($conexion, "utf8");
 ?>
 <?php
-// 2. Consulta para obtener los programas de la tabla
 $query = "SELECT * FROM programas";
 $resultado = mysqli_query($conexion, $query); 
 
-// Verificación de seguridad
 if (!$resultado) {
     die("Error en la consulta: " . mysqli_error($conexion));
 }
@@ -31,14 +28,14 @@ if (!$resultado) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Apoyo Estudiantil - CBTis 165</title>
+    <title>Apoyo estudiantil CBTis 165</title>
     <link rel="stylesheet" href="estilos2.css">
 </head>
 <body>
 
     <header>
         <img src="logo.jpg" alt="Logotipo Institucional CBTis 165">
-        <h1>Programas de Formación Integral</h1>
+        <h1>Programas del bienestar al estudiante</h1>
         <p>CBTis 165 "Leona Vicario"</p>
     </header>
 
@@ -66,12 +63,11 @@ if (!$resultado) {
                         <th>Programa</th>
                         <th>Descripción</th>
                         <th>Área de Impacto</th>
-                        <th>Requisitos de Participación</th>
+                        <th>Requisitos</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    // Punto 3: Ciclo while para generar las filas dinámicamente
                     while ($row = mysqli_fetch_array($resultado)) {
                         echo "<tr>";
                         echo "<td>" . $row['id'] . "</td>";
@@ -142,7 +138,7 @@ if (!$resultado) {
         <hr>
 
         <section id="contacto" class="formulario-consulta">
-            <h3>¿Te fue de utilidad la pagina? dejanos tu opinion </h3>
+            <h3>¿Que te parecio nuestro apoyo incondiconal?</h3>
             <p>Envíanos tu opinion.</p>
             <form method="POST">
                 <label>opinion:</label>
@@ -159,7 +155,7 @@ if(isset($_POST['enviar'])){
     $query = mysqli_query($conexion, $sql);
 
     if($query){
-        echo "¡Muchas gracias tu opinion nos ayuda a mejorar!.";
+        echo "¡Muchas gracias, nos ayudas a mejorar cada dia!.";
     } else {
         echo "Error de SQL: " . mysqli_error($conexion);
     }
@@ -172,10 +168,9 @@ if(isset($_POST['enviar'])){
 
     <footer>
         <p><strong>CBTis 165 "Leona Vicario"</strong></p>
-        <p>Dirección: Coatepec, Veracruz. Carretera Antigua Xalapa-Coatepec KM8.5, Consolapa.</p>
-        <p>telefono de contacto:2288162055</p>
-        <p>Desarrollado por: <strong>Fabián emir pineda hernandez</strong> | Parcial 2 | 2026</p>
-        <p>Redes Sociales: whatsapp:2281196948 / IG - pinedaa_hz</p>
+        <p>Dirección: Xico, La rotonda. </p>
+        <p>Desarrollado por:<strong>Santiago Valentin Encarnacion Francisco</strong> | Parcial 2 | 2026</p>
+        <p>Redes Sociales: whatsapp:7718965242</p>
     </footer>
 
 </body>
