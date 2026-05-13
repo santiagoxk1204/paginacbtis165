@@ -120,7 +120,7 @@ if (!$resultado) {
             <div class="texto-seccion">
                 <h3>Emprendimiento y Talento</h3>
                 <p><strong>MEEMS (Modelo de Emprendedores):</strong> Desarrolla competencias emprendedoras en los estudiantes para impulsar sus proyectos de vida y negocios.</p>
-                <p><strong>Oferta de Clubes:</strong></p>
+                <p><strong>Clubes:</strong></p>
                 <ul>
                     <li><strong>Deportivos:</strong> Fútbol, Voleibol y Basquetbol.</li>
                     <li><strong>Creatividad:</strong> Club Galácticos y Robótica.</li>
