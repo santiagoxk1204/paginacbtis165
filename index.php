@@ -91,8 +91,8 @@ if (!$resultado) {
         <section id="academico" class="seccion-con-imagen">
             <div class="texto-seccion">
                 <h3>Apoyo Académico</h3>
-                <p><strong>SINATA (Sistema Nacional de Tutorías):</strong> Es una estrategia para contribuir al desarrollo de las competencias y apoyar a los alumnos en la resolución de problemas de tipo académico, coadyuvando a la mejora de su rendimiento mediante orientación personalizada.</p>
-                <p><strong>PRONAFOLE (Fomento a la Lectura):</strong> Invita a los alumnos a acercarse a otros mundos mediante círculos literarios, tertulias, lecturas de poemas y juegos de investigación.</p>
+                <p><strong>SINATA (Sistema Nacional de Tutorías):</strong> Es una estrategia para contribuir al desarrollo de las competencias y apoyar a los alumnos en la resolución de problemas de tipo académico.</p>
+                <p><strong>PRONAFOLE (Fomento a la Lectura):</strong> Invita a los alumnos a acercarse a otros mundos mediante círculos literarios, lecturas de poemas y juegos de investigación.</p>
             </div>
             <div class="imagen-seccion">
                 <img src="SINATA.jpg" alt="Apoyo Académico">
@@ -104,7 +104,6 @@ if (!$resultado) {
             <div class="texto-seccion">
                 <h3>Bienestar y Salud</h3>
                 <p><strong>FOMALASA (Fomento a la Salud):</strong> Propicia estilos de vida saludables y bienestar integral. La escuela cuenta con un <strong>Consultorio Médico</strong> extendido y un <strong>Consultorio SEXUAL-MENTE Responsable</strong>.</p>
-                <p>También se llevan a cabo estrategias de educación para la prevención de adicciones y promoción de la salud en el aula.</p>
             </div>
             <div class="imagen-seccion">
                 <img src="fomalasa.jpg" alt="Bienestar y Salud">
@@ -130,13 +129,12 @@ if (!$resultado) {
                 <p><strong>Oferta de Clubes:</strong></p>
                 <ul>
                     <li><strong>Deportivos:</strong> Fútbol, Voleibol y Basquetbol.</li>
-                    <li><strong>Culturales:</strong> Dibujo y Pintura.</li>
-                    <li><strong>Ciencias:</strong> Club Galácticos y Robótica.</li>
+                    <li><strong>Creatividad:</strong> Club Galácticos y Robótica.</li>
                 </ul>
             </div>
             <div class="imagen-seccion">
                 <img src="meems.jpg" alt="Clubes y Emprendimiento">
-                <img src="deporte.jpg" alt="clubes">
+                <img src="robotica.jpg" alt="clubes">
                 <img src="futbol.jpg" alt="clubes">
             </div>
         </section>
