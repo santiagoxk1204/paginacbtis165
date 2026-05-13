@@ -148,15 +148,15 @@ if (!$resultado) {
             <p>Envíanos tu opinion.</p>
             <form method="POST">
                 <label>opinion:</label>
-                <input type="text" id="opinion" name="opinion" placeholder="Tu opinion aqui" required>
+                <input type="text" id="repuesta" name="respuesta" placeholder="Tu opinion aqui" required>
                 <button type="submit" name="enviar" class="btn-submit">Enviar Consulta</button>
 
                 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-if(isset($_POST['enviar consulta'])){
+if(isset($_POST['enviar'])){
     // 1. Recibimos datos
-    $opinion = $_POST['respuesta'];
+    $respuesta = $_POST['respuesta'];
     $sql = "INSERT INTO respuestas (respuesta) VALUES ('$respuesta')";
     $query = mysqli_query($conexion, $sql);
 
