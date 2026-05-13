@@ -157,13 +157,12 @@ error_reporting(E_ALL);
 if(isset($_POST['enviar'])){
     // 1. Recibimos datos
     $opinion = $_POST['opinion'];
-    $sql = "INSERT INTO respuesta (opinion) VALUES ('$opinion')";
+    $sql = "INSERT INTO respuestas (respuesta) VALUES ('$respuesta')";
     $query = mysqli_query($conexion, $sql);
 
     if($query){
         echo "¡Muchas gracias tu opinion nos ayuda a mejorar!.";
     } else {
-        // ESTA LÍNEA ES CLAVE: Te dirá qué tiene de malo tu base de datos
         echo "Error de SQL: " . mysqli_error($conexion);
     }
 } 
