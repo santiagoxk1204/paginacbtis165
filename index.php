@@ -53,9 +53,7 @@ if (!$resultado) {
     <main id="inicio">
         
         <section id="tabla-dinamica">
-            <h2>Catálogo General de Programas</h2>
-            <p>Información recuperada en tiempo real de la base de datos institucional:</p>
-            
+            <h2>TABLA DE PROGRAMAS</h2>
             <table>
                 <thead>
                     <tr>
