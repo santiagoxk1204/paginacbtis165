@@ -156,8 +156,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 if(isset($_POST['enviar'])){
     // 1. Recibimos datos
-    $opinion = $_POST['opinion'];
-    $sql = "INSERT INTO respuestas ($respuesta) VALUES ('$respuesta')";
+    $opinion = $_POST['respuesta'];
+    $sql = "INSERT INTO respuestas (respuesta) VALUES ('$respuesta')";
     $query = mysqli_query($conexion, $sql);
 
     if($query){
