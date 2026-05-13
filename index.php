@@ -77,7 +77,7 @@ if (!$resultado) {
                         echo "<td>" . $row['id'] . "</td>";
                         echo "<td><strong>" . $row['nombre'] . "</strong></td>";
                         echo "<td>" . $row['descripcion'] . "</td>";
-                        echo "<td>" . $row['area_impacto'] . "</td>";
+                        echo "<td>" . $row['area_de_impacto'] . "</td>";
                         echo "<td>" . $row['requisitos'] . "</td>";
                         echo "</tr>";
                     }
